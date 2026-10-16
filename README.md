@@ -3,11 +3,11 @@
 <br/>
 <br/>
 
-<img src="Logo.png" alt="BitChord app icon" width="200" />
+<img src="Logo.png" alt="Astral Music app icon" width="200" />
 
-# BitChord
+# Astral Music
 
-### Aesthetic YouTube Music Client
+### A music player project based on BitChord
 
 <br/>
 
