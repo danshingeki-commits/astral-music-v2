@@ -128,9 +128,9 @@ fun Modifier.lightweightLiquidGlass(
 ): Modifier {
     val useGlass = LocalLiquidGlassEnabled.current && isGlassSupported()
     val glassTint = if (MaterialTheme.colorScheme.surface.luminance() > 0.5f) {
-        Color(0xFFFAFAFA)
+        Color(0xFFE9D5FF)
     } else {
-        Color(0xFF121212)
+        Color(0xFF5B21B6)
     }
     val shapeProvider = ShapeProvider { shape }
 
