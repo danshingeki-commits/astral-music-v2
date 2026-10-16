@@ -1,4 +1,4 @@
-name: Android Test APK
+name: Android Installable APK
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build-test-apk:
+  build-installable-apk:
     runs-on: ubuntu-latest
 
     steps:
@@ -23,14 +23,14 @@ jobs:
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
 
-    # Build an unsigned release APK. This validates the app without relying on
-    # personal signing secrets or generating a corrupt keystore from empty values.
-    - name: Build Prod Release APK
-      run: ./gradlew :app:assembleProdRelease
+    # Debug APKs are signed automatically with Android's debug key so they can
+    # be installed for testing without private release-signing secrets.
+    - name: Build installable Prod Debug APK
+      run: ./gradlew :app:assembleProdDebug
 
-    - name: Upload APK Artifact
+    - name: Upload installable APK
       uses: actions/upload-artifact@v4
       with:
-        name: astral-music-test-apk
-        path: app/build/outputs/apk/prod/release/*.apk
+        name: astral-music-installable-apk
+        path: app/build/outputs/apk/prod/debug/*.apk
         if-no-files-found: error
